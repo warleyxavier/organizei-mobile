@@ -12,7 +12,10 @@ export default function Apresentacao() {
       <Text style={styles.titulo}>Organizei.me</Text>
       <Text style={styles.descricao}>Seu dinheiro organizado da forma que funciona</Text>
       <View style={styles.containerBotoes}>
-          <TouchableOpacity style={{...styles.botao, ...styles.botaoMeCadastrar}}>
+          <TouchableOpacity 
+            style={{...styles.botao, ...styles.botaoMeCadastrar}}
+            onPress={() => navigation.navigate("registro")}
+          >
             <Text style={{...styles.textoBotao, color: "white"}}>Me cadastrar</Text>
           </TouchableOpacity>
           <TouchableOpacity 

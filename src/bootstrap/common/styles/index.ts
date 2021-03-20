@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontSize: 16
   },
-  botaoEntrar: {
+  botao: {
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
@@ -44,7 +44,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#0D0D0D",
     marginTop: 50
   },
-  textoBotaoEntrar: {
+  textoBotao: {
     fontFamily: "Roboto",
     fontSize: 18,
     fontWeight: "bold",
