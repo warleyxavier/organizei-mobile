@@ -1,13 +1,16 @@
 import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 
-import RotasAutenticacao from "./src/routes/RotasAutenticacao";
+import { AutenticacaoProvider } from "./src/contexts/AutenticacaoContext";
+import Rotas from "./src/routes/Rotas";
 
 export default function App() {
 
   return (
     <NavigationContainer>
-      <RotasAutenticacao />
+      <AutenticacaoProvider>
+        <Rotas />
+      </AutenticacaoProvider>
     </NavigationContainer>
   );
 }

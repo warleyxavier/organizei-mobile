@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { Formik } from "formik";
+import * as Yup from "yup";
 
 import restClient from "../../../services/RestClient";
 
@@ -14,12 +15,17 @@ interface Usuario{
   senha: string
 }
 
+const Validacoes = Yup.object().shape({
+  nomeCompleto: Yup.string().required("Campo de preenchimento obrigatório!"),
+  email: Yup.string().required("Campo de preenchimento obrigatório!").email("Não é um email válido"),
+  senha: Yup.string().required("Campo de preenchimento obrigatório!").min(6, "A senha deve possuir no mínimo 6 horas!")
+});
+
 export default function Registro() {
   const navigation = useNavigation();
 
   async function registrar(usuario: Usuario) {
     const response = await restClient.post("usuarios/registrar", usuario);
-    console.log(response);
   }
 
   return (
@@ -33,10 +39,11 @@ export default function Registro() {
       <Text style={commonStyles.titulo}>Me cadastrar no app</Text>
       <Formik
         initialValues={{} as Usuario}
-        onSubmit={async (values: Usuario) => await registrar(values)}
-
+        onSubmit={async (usuario: Usuario) => await registrar(usuario)}
+        validationSchema={Validacoes}
+        validateOnMount={true}
       >
-        {({ handleChange, handleSubmit, values }) => (
+        {({ handleChange, handleSubmit, values, isValid }) => (
           <>
             <TextInput
               style={commonStyles.campo}
@@ -61,8 +68,9 @@ export default function Registro() {
               onChangeText={handleChange("senha")}
             />
             <TouchableOpacity
-              style={commonStyles.botao}
+              style={[commonStyles.botao, isValid ? {} : {backgroundColor: "#E4FDE1"}]}
               onPress={() => handleSubmit()}
+              disabled={!isValid}
             >
               <Text style={commonStyles.textoBotao}>Cadastrar</Text>
             </TouchableOpacity>
