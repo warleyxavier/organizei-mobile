@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, Alert } from "react-native";
 
 import Menu from "../../components/Menu";
 import restClient from "../../../services/RestClient";
@@ -30,19 +30,20 @@ export default function Home() {
         showsHorizontalScrollIndicator={false}
         style={styles.menu}
       >
-        <Menu/>
-        <Menu/>
-        <Menu/>
-        <Menu/>
-        <Menu/>
-        <Menu/>
-        <Menu/>
-        <Menu/>
-        <Menu/>
-        <Menu/>
-        <Menu/>
-        <Menu/>
-        <Menu/>
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
+        <Menu iconName="attach-money" descricao = "Categorias" onPress={() => {Alert.alert("Clicou")}} />
       </ScrollView> 
     </View>
   );
