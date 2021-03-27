@@ -6,6 +6,18 @@ export const styles = StyleSheet.create({
     height: 105,
     backgroundColor: "white",
     borderRadius: 8,
-    marginLeft: 15
+    marginLeft: 15,
+    justifyContent: "space-around"
+  },
+  iconContainer: {
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  descricao: {
+    textAlign: "center",
+    fontFamily: "Roboto",
+    fontSize: 15,
+    fontWeight: "bold",
+    color: "#27AE60"
   }
 });
