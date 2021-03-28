@@ -1,5 +1,6 @@
+import React from "react";
 import axios from "axios";
-import { Alert, ToastAndroid } from "react-native";
+import { ToastAndroid } from "react-native";
 
 const restClient = axios.create({
   baseURL: "https://organizei-back-end-homologacao.herokuapp.com/",
@@ -13,7 +14,7 @@ restClient.interceptors.response.use((response) => {
       return response;
 
     ToastAndroid.show(response.data.message, 8000);
-   // Alert.alert(response.data.message);
+
     return Promise.reject(response.data.message);
   },
   async function (error) {

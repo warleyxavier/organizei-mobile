@@ -5,6 +5,8 @@ import { useNavigation } from "@react-navigation/native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
+import { useNotificacao } from "../../../hooks/useNotificacao";
+
 import { useAutenticacao } from "../../../hooks/useAutenticacao";
 import { styles as commonStyles } from "../../common/styles";
 
@@ -21,13 +23,21 @@ const Validacoes = Yup.object().shape({
 export default function Login() {
   const navigation = useNavigation();
   const { autenticar } = useAutenticacao();
+  const { iniciarProcessamento, finalizarProcessamento } = useNotificacao();
 
   async function logar(dados: DadosAutenticacao) {
     Keyboard.dismiss();
-    await autenticar(dados);
+    iniciarProcessamento("Validando login ...");
+    try {
+      await autenticar(dados);      
+    }
+    finally {
+      finalizarProcessamento();
+    }
   }
 
   return (
+    
     <View style={commonStyles.container}>
       <TouchableOpacity
         style={commonStyles.botaoVoltar}
