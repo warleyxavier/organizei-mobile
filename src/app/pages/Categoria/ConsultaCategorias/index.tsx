@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Text, View, ScrollView } from "react-native";
+import { View, FlatList } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import StatusBar from "../../../components/StatusBar";
 import Categoria from "../../../components/Categoria";
+import BotaoNovo from "../../../components/BotaNovo";
 
 import restClient from "../../../../services/RestClient";
 
 import { styles } from "./styles";
-import { FlatList } from "react-native-gesture-handler";
+import { commonStyles } from "../../../../common/styles";
 
 export default function ConsultaCategorias() {
   const [categorias, setCategorias] = useState<any[]>([]);
+  const navigation = useNavigation();
 
   useEffect(() => {
     (async () => {
@@ -20,8 +23,8 @@ export default function ConsultaCategorias() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <StatusBar />
+    <View style={commonStyles.container}>
+      <StatusBar descricao={"Orçamentos"} />
       <FlatList
         style={styles.categorias}
         data={categorias}
@@ -34,6 +37,7 @@ export default function ConsultaCategorias() {
             tipo={item.tipo}
         />}
       />
+      <BotaoNovo acao={() => navigation.navigate("criacaoCategoria")} />
     </View>
   )
 }

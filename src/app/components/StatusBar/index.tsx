@@ -5,11 +5,17 @@ import BotaoVoltar from "../BotaoVoltar";
 
 import { styles } from "./styles";
 
-export default function StatusBar() {
+interface StatusBarData{
+  descricao: string
+}
+
+const StatusBar: React.FC<StatusBarData> = ({descricao}) => {
   return (
     <View style={styles.container}>
       <BotaoVoltar/>
-      <Text style={styles.descricao}>Categorias</Text>
+      <Text style={styles.descricao}>{descricao}</Text>
     </View>
   );
 }
+
+export default StatusBar;

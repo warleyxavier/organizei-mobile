@@ -8,7 +8,9 @@ import * as Yup from "yup";
 import { useNotificacao } from "../../../hooks/useNotificacao";
 
 import { useAutenticacao } from "../../../hooks/useAutenticacao";
-import { styles as commonStyles } from "../../common/styles";
+
+import { commonStyles } from "../../../common/styles";
+import { styles } from "../../common/styles";
 
 interface DadosAutenticacao{
   email: string,
@@ -38,14 +40,14 @@ export default function Login() {
 
   return (
     
-    <View style={commonStyles.container}>
+    <View style={styles.container}>
       <TouchableOpacity
-        style={commonStyles.botaoVoltar}
+        style={styles.botaoVoltar}
         onPress={() => navigation.navigate("apresentacao")}
       >
         <FontAwesome name="arrow-left" size={32} color="white" />
       </TouchableOpacity>
-      <Text style={commonStyles.titulo}>Faça login no seu app</Text>
+      <Text style={styles.titulo}>Faça login no seu app</Text>
       <Formik
         initialValues={{} as DadosAutenticacao}
         onSubmit={async (dados: DadosAutenticacao) => await logar(dados)}
@@ -71,11 +73,11 @@ export default function Login() {
               onChangeText={handleChange("senha")}
             />
             <TouchableOpacity
-              style={[commonStyles.botao, isValid ? {} : {backgroundColor: "#E4FDE1"}]}
+              style={[styles.botao, isValid ? {} : {backgroundColor: "#E4FDE1"}]}
               disabled={!isValid}
               onPress={() => handleSubmit()}
             >
-              <Text style={commonStyles.textoBotao}>Entrar</Text>
+              <Text style={styles.textoBotao}>Entrar</Text>
             </TouchableOpacity>
           </>
         )}
