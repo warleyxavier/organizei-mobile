@@ -24,17 +24,6 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 10
   },
-  campo: {
-    backgroundColor: "white",
-    height: 50,
-    marginTop: 25,
-    borderRadius: 6,
-    width: "100%",
-    padding: 15,
-    color: "#27AE60",
-    fontFamily: "Roboto",
-    fontSize: 16
-  },
   botao: {
     width: "100%",
     alignItems: "center",
