@@ -9,8 +9,8 @@ import RotasAutenticacao from "./RotasAutenticacao";
 export default function Rotas() {
   const { autenticado } = useAutenticacao();
 
-  AsyncStorage.clear().then(() => {
-  });
+ // AsyncStorage.clear().then(() => {
+ // });
 
   return autenticado ? <RotasAplicacao/> : <RotasAutenticacao/>;
 }

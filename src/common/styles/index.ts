@@ -8,19 +8,18 @@ export const commonStyles = StyleSheet.create({
   },
   formContainer: {
     width: "100%",
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    alignItems: "center"
   },
   campo: {
     backgroundColor: "white",
     height: 50,
-    marginTop: 25,
+    marginTop: 20,
     borderRadius: 6,
     width: "100%",
     padding: 15,
     color: "#27AE60",
     fontFamily: "Roboto",
-    fontSize: 16,
-    borderWidth: 2,
-    borderColor: "#27AE60"
+    fontSize: 16
   }
 });

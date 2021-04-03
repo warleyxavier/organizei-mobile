@@ -43,8 +43,6 @@ export const NotificacaoProvider: React.FC = ({ children }) => {
     setExisteProcessamentoEmExecucao(false);
   }
 
-  console.log("DEVE EXIBIR 2: ", deveExibir);
-
   return (
     <NotificacaoContext.Provider value={{deveExibir, mensagem, finalizarProcessamento, iniciarProcessamento} as DadosContexto}>
       {children}

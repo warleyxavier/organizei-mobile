@@ -5,14 +5,21 @@ import { styles } from "./styles";
 
 interface BotaoData {
   descricao: string,
-  acao(): void
+  acao(): void,
+  enabled?: boolean
 }
 
-const BotaoGrande: React.FC<BotaoData> = ({descricao, acao}) => {
+const BotaoGrande: React.FC<BotaoData> = ({descricao, acao, enabled = false}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.botao}>
-        <Text style={styles.textoBotao}>{descricao}</Text>
+      <TouchableOpacity 
+        style={[styles.botao, enabled ? styles.botaoHabilitado : styles.botaoDesabilitado]} 
+        onPress={acao} 
+        disabled={!enabled}
+      >
+        <Text 
+          style={[styles.textoBotao, enabled ? {} : styles.textoDesabilitado]}
+        >{descricao}</Text>
       </TouchableOpacity>
     </View>
   )
