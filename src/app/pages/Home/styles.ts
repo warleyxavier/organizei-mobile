@@ -2,8 +2,10 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#27AE60"
+    backgroundColor: "#27AE60",
+    paddingTop: 75,
+    paddingHorizontal: 15,
+    flex: 1
   },
   contaContainer: {
     height: 220,
@@ -24,8 +26,11 @@ export const styles = StyleSheet.create({
     color: "white"
   },
   menu: {
-    position: "absolute",
-    bottom: 30,
-    marginRight: 15
+    marginVertical: 20,
+    display: "flex",
+    minHeight: 105
+  },
+  tiles: {
+    backgroundColor: "red"
   }
 });
