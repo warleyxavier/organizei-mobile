@@ -4,9 +4,9 @@ export const styles = StyleSheet.create({
   container: {
     width: 105,
     height: 105,
-    backgroundColor: "white",
+    backgroundColor: "#27AE60",
     borderRadius: 8,
-    marginLeft: 15,
+    marginRight: 15,
     justifyContent: "space-around"
   },
   iconContainer: {
@@ -18,6 +18,6 @@ export const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontSize: 15,
     fontWeight: "bold",
-    color: "#27AE60"
+    color: "white"
   }
 });
