@@ -5,7 +5,7 @@ export default function StatusBarHome() {
   return <Text
     style={{
       fontFamily: "Roboto",
-      fontSize: 20,
+      fontSize: 25,
       fontWeight: "bold"
     }}
   >Olá Fulano</Text>

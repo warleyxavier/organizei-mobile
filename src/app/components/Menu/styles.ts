@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     width: 105,
     height: 105,
-    backgroundColor: "#27AE60",
+    backgroundColor: "#95d5b2",
     borderRadius: 8,
     marginRight: 15,
     justifyContent: "space-around"
@@ -18,6 +18,6 @@ export const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontSize: 15,
     fontWeight: "bold",
-    color: "white"
+    color: "black"
   }
 });

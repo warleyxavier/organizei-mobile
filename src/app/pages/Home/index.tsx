@@ -27,6 +27,8 @@ export default function Home() {
   return (
     <LinearGradient 
       style={styles.container} 
+      start= {{x: 0, y: 0}}
+      locations={[0, 0.3]}
       colors={['white', '#27AE60']}
     >
       <StatusBarHome/>
