@@ -18,7 +18,7 @@ const Menu: React.FC<MenuData> = ({iconName, descricao, onPress}) => {
       onPress={onPress}
     >
       <View style={styles.iconContainer}>
-        <MaterialIcons name={iconName} size={30} color="white" />
+        <MaterialIcons name={iconName} size={30} color="black" />
       </View>
       <Text style={styles.descricao}>{descricao}</Text>
     </TouchableOpacity>
