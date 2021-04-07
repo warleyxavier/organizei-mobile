@@ -5,10 +5,14 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import { styles } from "./styles";
 
-export default function OpcoesItemMenu() {
+interface OpcoesItemMenuData{
+  onDeletar(): void
+}
+
+const OpcoesItemMenu: React.FC<OpcoesItemMenuData> = ({onDeletar}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={[styles.opcao, {backgroundColor: "#dd2c2f"}]}>
+      <TouchableOpacity style={[styles.opcao, {backgroundColor: "#dd2c2f"}]} onPress={onDeletar}>
         <FontAwesome name="trash-o" size={30} color="white" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.opcao}>
@@ -17,3 +21,5 @@ export default function OpcoesItemMenu() {
     </View>
   );
 }
+
+export default OpcoesItemMenu;

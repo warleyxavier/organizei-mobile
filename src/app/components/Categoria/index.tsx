@@ -7,18 +7,25 @@ import OpcoesItemMenu from "../OpcoesItemMenu";
 import { styles } from "./styles";
 
 interface CategoriaData {
+  codigo: number,
   descricao: string,
   percentualPrevisto: number,
   valorPrevisto: number,
-  tipo: "Receita" | "Despesa"
+  tipo: "Receita" | "Despesa",
+  podeAcessarOpcoes: boolean,
+  onDeletar(codigo: number): void
 }
 
-const Categoria: React.FC<CategoriaData> = ({ descricao, percentualPrevisto, valorPrevisto, tipo }) => {
+const Categoria: React.FC<CategoriaData> = ({ codigo, descricao, percentualPrevisto, valorPrevisto, tipo, podeAcessarOpcoes, onDeletar }) => {
+  
+  function deletar() {
+    onDeletar(codigo);
+  }
+  
   return (
     <Swipeable
-      renderRightActions={OpcoesItemMenu}
+      renderRightActions={() => podeAcessarOpcoes && <OpcoesItemMenu onDeletar={deletar} />}
     >
-
       <View style={[styles.container, { borderLeftColor: tipo == "Despesa" ? "#e5383b" : "#27AE60" }]}>
         <Text style={styles.descricao}>{descricao}</Text>
         <View>
