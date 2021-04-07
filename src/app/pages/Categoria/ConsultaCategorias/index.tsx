@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList, Alert, ToastAndroid } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
 import StatusBar from "../../../components/StatusBar";
@@ -24,6 +24,12 @@ export default function ConsultaCategorias() {
     }, [])
   );
 
+  async function deletar(codigo: number) {
+    await restClient.delete(`categorias/${codigo}`);
+    setCategorias(categorias.filter(categoria => categoria.codigo != codigo));
+    ToastAndroid.show("Orçamento excluído com sucesso", 8000);
+  }
+
   return (
     <View style={commonStyles.container}>
       <StatusBar descricao={"Orçamentos"} />
@@ -33,10 +39,13 @@ export default function ConsultaCategorias() {
         keyExtractor={categoria => categoria.codigo}
         renderItem={({ item }) =>
           <Categoria
+            codigo={item.codigo}
             descricao={item.nome}
             percentualPrevisto={Number(item.porcentegmPrevista)}
             valorPrevisto={Number(item.valorPrevisto)}
             tipo={item.tipo}
+            podeAcessarOpcoes={item.tipo == "Despesa"}
+            onDeletar={deletar}
           />}
       />
       <BotaoNovo acao={() => navigation.navigate("criacaoCategoria")} />
