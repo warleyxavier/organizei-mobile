@@ -13,18 +13,23 @@ interface CategoriaData {
   valorPrevisto: number,
   tipo: "Receita" | "Despesa",
   podeAcessarOpcoes: boolean,
-  onDeletar(codigo: number): void
+  onDeletar(codigo: number): void,
+  onAlterar(codigo: number, nome: string, valorPrevisto: number, porcentagemPrevista: number): void
 }
 
-const Categoria: React.FC<CategoriaData> = ({ codigo, descricao, percentualPrevisto, valorPrevisto, tipo, podeAcessarOpcoes, onDeletar }) => {
+const Categoria: React.FC<CategoriaData> = ({ codigo, descricao, percentualPrevisto, valorPrevisto, tipo, podeAcessarOpcoes, onDeletar, onAlterar }) => {
   
   function deletar() {
     onDeletar(codigo);
   }
+
+  function alterar() {
+    onAlterar(codigo, descricao, valorPrevisto, percentualPrevisto);
+  }
   
   return (
     <Swipeable
-      renderRightActions={() => podeAcessarOpcoes && <OpcoesItemMenu onDeletar={deletar} />}
+      renderRightActions={() => podeAcessarOpcoes && <OpcoesItemMenu onDeletar={deletar} onAlterar={alterar} />}
     >
       <View style={[styles.container, { borderLeftColor: tipo == "Despesa" ? "#e5383b" : "#27AE60" }]}>
         <Text style={styles.descricao}>{descricao}</Text>
