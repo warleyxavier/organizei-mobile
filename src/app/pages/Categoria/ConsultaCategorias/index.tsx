@@ -30,6 +30,16 @@ export default function ConsultaCategorias() {
     ToastAndroid.show("Orçamento excluído com sucesso", 8000);
   }
 
+  async function alterar(codigo: number, nome: string, valorPrevisto: number, porcentagemPrevista: number) {
+
+    navigation.navigate("alteracaoCategoria", {
+      codigoCategoria: codigo,
+      nome: nome,
+      valorPrevisto,
+      porcentagemPrevista
+    });
+  }
+
   return (
     <View style={commonStyles.container}>
       <StatusBar descricao={"Orçamentos"} />
@@ -41,11 +51,12 @@ export default function ConsultaCategorias() {
           <Categoria
             codigo={item.codigo}
             descricao={item.nome}
-            percentualPrevisto={Number(item.porcentegmPrevista)}
+            percentualPrevisto={Number(item.porcentagemPrevista)}
             valorPrevisto={Number(item.valorPrevisto)}
             tipo={item.tipo}
             podeAcessarOpcoes={item.tipo == "Despesa"}
             onDeletar={deletar}
+            onAlterar={alterar}
           />}
       />
       <BotaoNovo acao={() => navigation.navigate("criacaoCategoria")} />
